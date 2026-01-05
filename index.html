@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Happy Birthday Krishnakoli Bahadur 🎉</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: radial-gradient(circle at top, #1a001f, #000000);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 35px;
+      font-size: 3.5rem;
+      font-family: 'Great Vibes', cursive;
+      background: linear-gradient(90deg, #c77dff, #ff4ecd, #ff9ff3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% { filter: drop-shadow(0 0 10px #c77dff); }
+      50% { filter: drop-shadow(0 0 30px #ff4ecd); }
+      100% { filter: drop-shadow(0 0 10px #c77dff); }
+    }
+
+    .subtitle { margin-top: 10px; color: #ffb3ff; }
+
+    .cake { font-size: 90px; margin: 30px 0; animation: float 2.5s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-25px); } }
+
+    .photo-frame {
+      margin: 30px auto;
+      width: 220px; height: 220px;
+      border-radius: 50%; padding: 6px;
+      background: linear-gradient(45deg, purple, hotpink);
+      box-shadow: 0 0 30px #ff4ecd;
+      animation: pulse 2.5s infinite;
+    }
+    .photo-frame img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    @keyframes pulse { 50% { box-shadow: 0 0 45px hotpink; } }
+
+    .video-box {
+      margin: 40px auto; max-width: 90%;
+      border-radius: 20px; border: 3px solid #c77dff;
+      box-shadow: 0 0 30px #ff4ecd;
+    }
+    video { width: 100%; border-radius: 20px; }
+
+    .btn {
+      display: inline-block; margin: 15px;
+      padding: 14px 35px; font-size: 1.05rem;
+      color: white; border-radius: 30px;
+      background: linear-gradient(45deg, purple, hotpink);
+      text-decoration: none; box-shadow: 0 0 20px #ff4ecd;
+      cursor: pointer;
+    }
+
+    footer { margin: 40px 0; color: #aaa; }
+
+    .confetti, .firework {
+      position: fixed; width: 10px; height: 10px;
+      top: -10px; animation: fall linear infinite; z-index: -1;
+    }
+    @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+    .firework {
+      width: 6px; height: 6px; border-radius: 50%;
+      animation: explode 1.5s infinite;
+    }
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(20); opacity: 0; }
+    }
+
+    .gift {
+      font-size: 70px; cursor: pointer;
+      animation: shake 1.5s infinite;
+    }
+    @keyframes shake { 50% { transform: rotate(10deg); } }
+  </style>
+</head>
+<body>
+
+<h1>Happy Birthday Krishnakoli Bahadur</h1>
+<div class="subtitle">💜 May your life glow brighter every year 💖</div>
+
+<div class="cake">🎂✨🎉</div>
+
+<div class="photo-frame">
+  <img src="photo.jpg" alt="Krishnakoli Bahadur">
+</div>
+
+<div class="video-box">
+  <video autoplay controls muted>
+    <source src="birthday.mp4" type="video/mp4">
+  </video>
+</div>
+
+<a class="btn" id="musicBtn">▶ Play Music</a>
+
+<div class="gift" onclick="alert('🎁 Surprise! Wishing you endless happiness 💜')">🎁</div>
+
+<audio id="bgMusic" loop>
+  <source src="birthday-music.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Made with 💜 | Premium Birthday Experience</footer>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      musicBtn.innerText = '⏸ Pause Music';
+    } else {
+      music.pause();
+      musicBtn.innerText = '▶ Play Music';
+    }
+  }
+
+  musicBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMusic();
+  });
+
+  // Enable autoplay after first user interaction (browser policy safe)
+  document.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.innerText = '⏸ Pause Music';
+    }
+  }, { once: true });
+
+  // Confetti
+  for (let i = 0; i < 120; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    c.style.background = Math.random() > 0.5 ? '#ff4ecd' : '#c77dff';
+    document.body.appendChild(c);
+  }
+
+  // Fireworks
+  setInterval(() => {
+    const f = document.createElement('div');
+    f.className = 'firework';
+    f.style.left = Math.random() * 100 + 'vw';
+    f.style.top = Math.random() * 60 + 'vh';
+    f.style.background = Math.random() > 0.5 ? 'hotpink' : 'purple';
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 1500);
+  }, 800);
+</script>
+
+</body>
+</html>
